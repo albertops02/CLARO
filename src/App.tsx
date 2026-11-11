@@ -417,15 +417,15 @@ export default function App() {
                 : "Buenas noches"}
             . Vamos a poner un poco de orden.
           </h1>
-          <p>Un paso cada vez. Aquí tienes lo que importa ahora.</p>
+          <p>Tu pequeño rincón para ordenar el día, a tu ritmo.</p>
           <button className="textLink" onClick={() => go("overwhelmed")}>
             No sé por dónde empezar <ArrowRight size={15} />
           </button>
         </div>
         <div className="sectionHead">
           <div>
-            <span className="eyebrow">ENFOQUE DE HOY</span>
-            <h2>Mis tres prioridades</h2>
+            <span className="eyebrow">POQUITO A POCO</span>
+            <h2>Lo importante de hoy</h2>
           </div>
           <button className="subtleBtn" onClick={() => go("tasks")}>
             Ver mis tareas <ArrowRight size={16} />

@@ -1625,6 +1625,119 @@ main {
     min-height: 185px;
   }
 }
+/* Soft, personal surfaces keep the everyday view calm and approachable. */
+.app:not(.dark) {
+  --bg: #fcf9f6;
+  --surface: #fffefd;
+  --line: #eee7e2;
+  --soft: #f5f0eb;
+}
+.hero {
+  background: #f0ebf6;
+  border-color: #e7dfef;
+  border-radius: 28px;
+}
+.hero:after {
+  width: 140px;
+  height: 140px;
+  border-width: 23px;
+  border-color: #e4d7ed;
+  top: -75px;
+  right: -25px;
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(27px, 2.5vw, 36px);
+  max-width: 610px;
+  font-weight: 700;
+}
+.hero p {
+  color: #80758c;
+}
+.priorityCard,
+.projectCard,
+.subjectCard,
+.examCard,
+.templateCard,
+.panel,
+.noteCard,
+.selectionPanel {
+  border-radius: 20px;
+  box-shadow: 0 3px 14px #68513d03;
+}
+.priorityCard {
+  border-top: 4px solid #c6d9c9;
+}
+.priorityCard:nth-child(2) {
+  border-top-color: #ded0eb;
+}
+.priorityCard:nth-child(3) {
+  border-top-color: #f0d4bf;
+}
+.number {
+  font-size: 17px;
+  color: #a9b6aa;
+}
+.primaryBtn,
+.subtleBtn,
+.searchBtn {
+  border-radius: 13px;
+}
+.sidebar nav button {
+  border-radius: 14px;
+}
+.pill,
+.priority {
+  border-radius: 20px;
+}
+.stats {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  gap: 0;
+}
+.stats > div {
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+.stats strong {
+  font-size: 21px;
+  color: var(--accent);
+}
+.sectionHead > div > .eyebrow,
+.panelHead .eyebrow {
+  display: none;
+}
+.cardAction {
+  padding-top: 13px;
+}
+.dark .hero p {
+  color: #c9c0d1;
+}
+@media (max-width: 760px) {
+  .hero {
+    border-radius: 23px;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-size: 28px;
+  }
+  .sectionHead {
+    gap: 10px;
+  }
+  .sectionHead h2 {
+    font-size: 18px;
+  }
+  .toolbarRight {
+    flex-wrap: wrap;
+  }
+  .toolbarRight select {
+    flex: 1;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   *,
   *:before,
