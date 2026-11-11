@@ -424,10 +424,6 @@ export default function App() {
               No sé por dónde empezar <ArrowRight size={15} />
             </button>
           </div>
-          <figure className="memoryPhoto">
-            <img src="/assets/recuerdo.webp" alt="Un recuerdo personal junto al mar" />
-            <figcaption>Un lugar al que volver</figcaption>
-          </figure>
         </div>
         <form
           className="quickCapture"
@@ -617,6 +613,17 @@ export default function App() {
             </div>
           </section>
         </div>
+        <section className="littleJoy" aria-label="Mi rincón personal">
+          <figure className="memoryPhoto">
+            <img src="/assets/recuerdo.webp" alt="Un recuerdo personal junto al mar" loading="lazy" />
+            <figcaption>Mis cosas bonitas ♡</figcaption>
+          </figure>
+          <div>
+            <span className="eyebrow">MI RINCÓN</span>
+            <h2>También hay espacio para disfrutar.</h2>
+            <p>Un pequeño recuerdo entre tus planes.</p>
+          </div>
+        </section>
         {data.settings.showSummary && (
           <div className="stats">
             {[
