@@ -183,6 +183,7 @@ export default function App() {
     >(null),
     [editing, setEditing] = useState<any>(null),
     [query, setQuery] = useState(""),
+    [quickNote, setQuickNote] = useState(""),
     [searchOpen, setSearchOpen] = useState(false),
     [taskView, setTaskView] = useState<"list" | "kanban">("list"),
     [taskFilter, setTaskFilter] = useState("open"),
@@ -406,22 +407,59 @@ export default function App() {
     return (
       <>
         <div className="hero">
-          <div className="eyebrow">
-            {format(new Date(), "EEEE, d 'de' MMMM", { locale: es })}
+          <div className="heroCopy">
+            <div className="eyebrow">
+              {format(new Date(), "EEEE, d 'de' MMMM", { locale: es })}
+            </div>
+            <h1>
+              {new Date().getHours() < 13
+                ? "Buenos días"
+                : new Date().getHours() < 20
+                  ? "Buenas tardes"
+                  : "Buenas noches"}
+              . Vamos a poner un poco de orden.
+            </h1>
+            <p>Tu pequeño rincón para ordenar el día, a tu ritmo.</p>
+            <button className="textLink" onClick={() => go("overwhelmed")}>
+              No sé por dónde empezar <ArrowRight size={15} />
+            </button>
           </div>
-          <h1>
-            {new Date().getHours() < 13
-              ? "Buenos días"
-              : new Date().getHours() < 20
-                ? "Buenas tardes"
-                : "Buenas noches"}
-            . Vamos a poner un poco de orden.
-          </h1>
-          <p>Tu pequeño rincón para ordenar el día, a tu ritmo.</p>
-          <button className="textLink" onClick={() => go("overwhelmed")}>
-            No sé por dónde empezar <ArrowRight size={15} />
-          </button>
+          <figure className="memoryPhoto">
+            <img src="/assets/recuerdo.webp" alt="Un recuerdo personal junto al mar" />
+            <figcaption>Un lugar al que volver</figcaption>
+          </figure>
         </div>
+        <form
+          className="quickCapture"
+          onSubmit={(event) => {
+            event.preventDefault();
+            if (!quickNote.trim()) return;
+            change(
+              (state) => ({
+                ...state,
+                notes: [
+                  { id: uid(), text: quickNote.trim(), createdAt: new Date().toISOString() },
+                  ...state.notes,
+                ],
+              }),
+              "Guardado en la bandeja",
+            );
+            setQuickNote("");
+          }}
+        >
+          <div>
+            <Inbox size={18} />
+            <input
+              value={quickNote}
+              onChange={(event) => setQuickNote(event.target.value)}
+              placeholder="Apunta algo antes de que se te olvide…"
+              aria-label="Anotación rápida"
+            />
+          </div>
+          <button className="primaryBtn" type="submit" disabled={!quickNote.trim()}>
+            Guardar
+          </button>
+        </form>
         <div className="sectionHead">
           <div>
             <span className="eyebrow">POQUITO A POCO</span>

@@ -1636,6 +1636,9 @@ main {
   background: #f0ebf6;
   border-color: #e7dfef;
   border-radius: 28px;
+  display: flex;
+  align-items: center;
+  gap: 34px;
 }
 .hero:after {
   width: 140px;
@@ -1650,6 +1653,79 @@ main {
   font-size: clamp(27px, 2.5vw, 36px);
   max-width: 610px;
   font-weight: 700;
+}
+.heroCopy {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+}
+.memoryPhoto {
+  position: relative;
+  z-index: 1;
+  width: 185px;
+  flex: 0 0 185px;
+  margin: 0;
+  padding: 7px 7px 9px;
+  background: #fffdfa;
+  border: 1px solid #ece5de;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px #4f3d4b18;
+  transform: rotate(1.5deg);
+}
+.memoryPhoto img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: 66% center;
+  border-radius: 10px;
+}
+.memoryPhoto figcaption {
+  padding: 7px 4px 0;
+  color: #8b7e87;
+  text-align: center;
+  font-size: 10px;
+}
+.quickCapture {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: -22px auto 38px;
+  width: min(680px, calc(100% - 36px));
+  position: relative;
+  z-index: 2;
+  padding: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  box-shadow: 0 8px 28px #5749570c;
+}
+.quickCapture > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+  color: var(--accent);
+  padding-left: 8px;
+}
+.quickCapture input {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 0;
+  border: 0;
+  outline: 0;
+  color: var(--text);
+  background: transparent;
+  font-size: 13px;
+}
+.quickCapture input::placeholder {
+  color: var(--muted);
+}
+.quickCapture .primaryBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
 }
 .hero p {
   color: #80758c;
@@ -1719,9 +1795,31 @@ main {
   .hero {
     border-radius: 23px;
     margin-bottom: 28px;
+    align-items: flex-start;
+    gap: 12px;
   }
   .hero h1 {
     font-size: 28px;
+  }
+  .memoryPhoto {
+    width: 92px;
+    flex-basis: 92px;
+    padding: 5px;
+    border-radius: 12px;
+    transform: rotate(2deg);
+  }
+  .memoryPhoto img {
+    border-radius: 8px;
+  }
+  .memoryPhoto figcaption {
+    display: none;
+  }
+  .quickCapture {
+    margin: -12px 0 28px;
+    width: 100%;
+  }
+  .quickCapture input {
+    font-size: 16px;
   }
   .sectionHead {
     gap: 10px;
